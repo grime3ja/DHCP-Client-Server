@@ -1,0 +1,83 @@
+general
+      // switch (buf[242])
+      //   {
+      //   case DHCPDISCOVER:;
+      //     if (index + 1 >= 5)
+      //       {
+      //         option_value = DHCPNAK;
+      //         nak = true;
+      //         break;
+      //       }
+      //     option_value = DHCPOFFER;
+      //     // loop through clients and check that the tombstone is false,
+      //     // and then check to see if the previous IP address used (if any)
+      //     // is taken, if not reassign it, if it is taken,
+      //     // check to see if there is one open.
+      //     client_t client;
+      //     memset (&client, 0, sizeof (client_t));
+          
+      //     if (client.ciaddr.s_addr == 0)
+      //       {
+      //         char c[12];
+      //         snprintf (c, 12, "192.168.1.%ld", index + 1);
+      //         inet_pton (AF_INET, c, &client.ciaddr.s_addr);
+      //       }
+      //     struct in_addr ciaddr = client.ciaddr;
+
+      //     clients[index] = client;
+      //     index++;
+      //     break;
+      //   case DHCPREQUEST:;
+      //     // if the type was DHCPREQUEST, we need to check that the sid sent matches
+      //     // 192.168.1.0, if it does send DHCPACK back, otherwise send DHCPNAK
+      //     if (memcmp (&buf[245], sid, 4) != 0)
+      //       {
+      //         option_value = DHCPNAK;
+      //         nak = true;
+      //       }
+      //     else
+      //       option_value = DHCPACK;
+      //     break;
+      //   case DHCPRELEASE:;
+      //     break;
+      //   }
+
+
+dhcp discover
+
+              // for (int j = 0; j < 4; j++)
+              //   {
+              //     if (clients[j].chaddr == message->chaddr)
+              //       client = clients[j];
+              //   }
+
+              // for (int j = 0; j < 4; j++)
+              //   {
+              //     if (!clients[j].tombstone)
+              //       {
+              //         bool reassign = false;
+              //         for (int k = 0; k < 4; k++)
+              //           {
+              //             if (memcmp (&ciaddr.s_addr, &clients[k].ciaddr.s_addr, sizeof (ciaddr.s_addr)) == 0
+              //                 && j != k)
+              //               reassign = true;
+              //           }
+              //         if (!reassign)
+              //           {
+              //             for (int k = 0; k < 4; k++)
+              //               {
+              //                 if (clients[k].tombstone)
+              //                   client.ciaddr = clients[k].ciaddr;
+              //               }
+              //           }
+              //         else
+              //           client.tombstone = false;
+              //       }
+              //   }
+
+dhcp release
+              // for (int j = 0; j < 4; j++)
+              //   {
+              //     if (memcmp (&clients[j].ciaddr.s_addr, &message->ciaddr.s_addr, sizeof (message->ciaddr.s_addr)) == 0)
+              //       clients[j].tombstone = true;
+              //   }
